@@ -1,15 +1,15 @@
 {
-  "buildCommand": "pnpm install && pnpm build",
+  "buildCommand": "cd frontend && npm install && npm run build && cd ../landingpage && npm install && npm run build && cd .. && mkdir -p public && cp -r frontend/dist/* public/ && mkdir -p public/landingpage && cp -r landingpage/dist/* public/landingpage/",
   "outputDirectory": "public",
   "framework": null,
   "rewrites": [
     {
-      "source": "/app",
-      "destination": "/app/index.html"
+      "source": "/landingpage",
+      "destination": "/landingpage/index.html"
     },
     {
-      "source": "/app/(.*)",
-      "destination": "/app/$1"
+      "source": "/landingpage/(.*)",
+      "destination": "/landingpage/$1"
     },
     {
       "source": "/(.*)",

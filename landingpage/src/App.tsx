@@ -37,10 +37,10 @@ function App() {
                   Built for the Scoop AI Hackathon, Autonomous Finance & Quant AI track.
                 </p>
                 <div className="flex space-x-4">
-                  <a href="/app" className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-                    Launch App
+                  <a href="/" className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                    Launch Game
                   </a>
-                  <a href="https://github.com/yourusername/SpoonAI-Quant" className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition">
+                  <a href="https://github.com/CNDY1390/BabyBTC-Quant-Lab" className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition">
                     View GitHub
                   </a>
                 </div>
