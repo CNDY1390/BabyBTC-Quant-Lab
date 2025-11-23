@@ -1,6 +1,6 @@
 // Main App component
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { AppShell } from './components/layout/AppShell';
 import { GamePage } from './pages/GamePage';
 import { LandingPage } from './pages/LandingPage';

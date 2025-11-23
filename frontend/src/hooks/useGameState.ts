@@ -25,7 +25,7 @@ export function useGameState({
   const [gameState, setGameState] = useState<GameStateSnapshot | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const intervalRef = useRef<NodeJS.Timeout>();
+  const intervalRef = useRef<ReturnType<typeof setInterval>>();
 
   const fetchGameState = async () => {
     try {
