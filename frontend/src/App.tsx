@@ -1,8 +1,9 @@
 // Main App component
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppShell } from './components/layout/AppShell';
 import { GamePage } from './pages/GamePage';
+import { LandingPage } from './pages/LandingPage';
 import { Modal } from './components/common/Modal';
 import { useBootstrap } from './hooks/useBootstrap';
 import './styles/index.css';
@@ -10,6 +11,30 @@ import './styles/index.css';
 function App() {
   const { status, profile, isFirstTime } = useBootstrap();
   const [showMnemonicModal, setShowMnemonicModal] = useState(isFirstTime);
+  const [currentPage, setCurrentPage] = useState<'landing' | 'game'>('game');
+
+  useEffect(() => {
+    // Simple routing based on pathname
+    const path = window.location.pathname;
+    if (path === '/landingpage') {
+      setCurrentPage('landing');
+    } else {
+      setCurrentPage('game');
+    }
+
+    // Handle navigation
+    const handleNavigation = () => {
+      const path = window.location.pathname;
+      if (path === '/landingpage') {
+        setCurrentPage('landing');
+      } else {
+        setCurrentPage('game');
+      }
+    };
+
+    window.addEventListener('popstate', handleNavigation);
+    return () => window.removeEventListener('popstate', handleNavigation);
+  }, []);
 
   if (status === 'booting') {
     return (
@@ -24,6 +49,12 @@ function App() {
     );
   }
 
+  // Show landing page first, no need for backend connection
+  if (currentPage === 'landing') {
+    return <LandingPage />;
+  }
+
+  // For game page, check backend connection
   if (status === 'error' || !profile) {
     return (
       <div className="min-h-screen bg-slate-100 flex items-center justify-center">

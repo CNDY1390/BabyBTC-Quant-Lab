@@ -1,19 +1,11 @@
 {
-  "buildCommand": "cd frontend && npm install && npm run build && cd ../landingpage && npm install && npm run build && cd .. && mkdir -p public && cp -r frontend/dist/* public/ && mkdir -p public/landingpage && cp -r landingpage/dist/* public/landingpage/",
-  "outputDirectory": "public",
+  "buildCommand": "cd frontend && npm install --legacy-peer-deps && npm run build",
+  "outputDirectory": "frontend/dist",
   "framework": null,
   "rewrites": [
     {
-      "source": "/landingpage",
-      "destination": "/landingpage/index.html"
-    },
-    {
-      "source": "/landingpage/(.*)",
-      "destination": "/landingpage/$1"
-    },
-    {
       "source": "/(.*)",
-      "destination": "/$1"
+      "destination": "/index.html"
     }
   ]
 }
